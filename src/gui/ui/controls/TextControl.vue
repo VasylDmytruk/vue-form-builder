@@ -12,7 +12,9 @@
                        :readonly="this.control.readonly"
                        v-if="!control.isMultiLine"
                        :name="control.fieldName"
-                       v-model="control.value" />
+                       v-model="control.value"
+                       :placeholder=""
+                       v-bind:placeholder="control.placeholder" />
                 <textarea v-else class="form-control"
                           v-model="control.value"
                           :readonly="this.control.readonly"
@@ -29,7 +31,8 @@
                    :readonly="this.control.readonly"
                    v-if="!control.isMultiLine"
                    :name="control.fieldName"
-                   v-model="control.value" />
+                   v-model="control.value"
+                   v-bind:placeholder="control.placeholder" />
             <textarea v-else class="form-control"
                       v-model="control.value"
                       :readonly="this.control.readonly"
