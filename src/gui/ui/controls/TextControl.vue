@@ -13,8 +13,7 @@
                        v-if="!control.isMultiLine"
                        :name="control.fieldName"
                        v-model="control.value"
-                       :placeholder=""
-                       v-bind:placeholder="control.placeholder" />
+                       :placeholder="control.placeholder" />
                 <textarea v-else class="form-control"
                           v-model="control.value"
                           :readonly="this.control.readonly"
@@ -32,7 +31,7 @@
                    v-if="!control.isMultiLine"
                    :name="control.fieldName"
                    v-model="control.value"
-                   v-bind:placeholder="control.placeholder" />
+                   :placeholder="control.placeholder" />
             <textarea v-else class="form-control"
                       v-model="control.value"
                       :readonly="this.control.readonly"
@@ -48,6 +47,7 @@
         name: "TextControl",
         props: ['control', 'labelPosition'],
         mounted() {
+            console.log('control', this.control);
             if (!_.isEmpty(this.control.defaultValue)) {
                 this.control.value = this.control.defaultValue;
             }

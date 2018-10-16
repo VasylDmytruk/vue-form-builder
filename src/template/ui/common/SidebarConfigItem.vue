@@ -160,6 +160,10 @@
                     <input type="text" class="form-control" v-model="control.label">
                 </div>
                 <div class="form-group">
+                    <label>Control placeholder</label>
+                    <input type="text" class="form-control" v-model="control.placeholder">
+                </div>
+                <div class="form-group">
                     <label><input type="checkbox" v-model="control.labelBold"> Bold</label>
                     <label><input type="checkbox" v-model="control.labelItalic"> Italic</label>
                     <label><input type="checkbox" v-model="control.labelUnderline"> Underline</label>
