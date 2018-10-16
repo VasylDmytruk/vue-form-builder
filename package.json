@@ -1,7 +1,7 @@
 {
     "name": "autoxloo-form-builder",
     "description": "Fork of a Super Form Builder (drag & drop) build with VueJS by Seth Phat",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "author": "Phat Tran <phattranminh96@gmail.com> (https://sethphat.com)",
     "keywords": [
         "vue",
@@ -13,10 +13,10 @@
     "license": "MIT",
     "private": false,
     "main": "dist/vue-form-builder.min.js",
-    "homepage": "https://github.com/sethsandaru/vue-form-builder",
+    "homepage": "https://github.com/VasylDmytruk/vue-form-builder",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/sethsandaru/vue-form-builder.git"
+        "url": "git+https://github.com/VasylDmytruk/vue-form-builder.git"
     },
     "scripts": {
         "test": "webpack --json > stats.json",
