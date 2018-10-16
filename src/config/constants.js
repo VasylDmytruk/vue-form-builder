@@ -107,6 +107,10 @@ FORM_CONSTANTS.Type = {
         label:"Checkbox",
         icon: faCheck
     },
+    radio: {
+        label:"Radio",
+        icon: faDotCircle
+    },
 };
 
 FORM_CONSTANTS.WidthOptions = {

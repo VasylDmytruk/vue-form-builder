@@ -12,7 +12,7 @@
                        :readonly="control.readonly"
                        :name="control.fieldName"
                        :value="demo_value"
-                       v-if="control.type != 'checkbox' && control.type != 'select'">
+                       v-if="control.type != 'radio' && control.type != 'checkbox' && control.type != 'select'">
 
                 <!-- demo for select -->
                 <select class="form-control" v-if="control.type == 'select'" :name="control.fieldName">
@@ -25,7 +25,12 @@
                     <input type="checkbox" :name="control.fieldName" :checked="control.isChecked">
                 </div>
 
-                <div class="input-group-append" v-if="control.type != 'text' && control.type != 'select' && control.type != 'checkbox'">
+                <!-- demo for radio -->
+                <div class="text-center w-100" v-if="control.type == 'radio'">
+                    <input type="radio" :name="control.fieldName" :checked="control.isChecked">
+                </div>
+
+                <div class="input-group-append" v-if="control.type != 'text' && control.type != 'select' && control.type != 'checkbox' && control.type != 'radio'">
                     <span class="input-group-text">
                         <font-awesome-icon :icon="controlTypes[control.type].icon"></font-awesome-icon>
                     </span>
@@ -43,7 +48,7 @@
                            :readonly="control.readonly"
                            :name="control.fieldName"
                            :value="demo_value"
-                           v-if="control.type != 'checkbox' && control.type != 'select'">
+                           v-if="control.type != 'radio' && control.type != 'checkbox' && control.type != 'select'">
 
                     <!-- demo for select -->
                     <select class="form-control" v-if="control.type == 'select'" :name="control.fieldName">
@@ -56,7 +61,12 @@
                         <input type="checkbox" :name="control.fieldName" :checked="control.isChecked">
                     </div>
 
-                    <div class="input-group-append" v-if="control.type != 'text' && control.type != 'select' && control.type != 'checkbox'">
+                    <!-- demo for checkbox -->
+                    <div class="text-center w-100" v-if="control.type == 'radio'">
+                        <input type="radio" :name="control.fieldName" :checked="control.isChecked">
+                    </div>
+
+                    <div class="input-group-append" v-if="control.type != 'text' && control.type != 'select' && control.type != 'checkbox' && control.type != 'radio'">
                         <span class="input-group-text">
                             <font-awesome-icon :icon="controlTypes[control.type].icon"></font-awesome-icon>
                         </span>

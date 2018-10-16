@@ -65,6 +65,11 @@
                     <input type="checkbox" name="isChecked" v-model="control.isChecked"> Checked?
                 </label>
 
+                <!-- for radio -->
+                <label v-if="control.type === 'radio'">
+                    <input type="checkbox" name="isChecked" v-model="control.isChecked"> Checked?
+                </label>
+
                 <!-- for select -->
                 <label v-if="control.type === 'select'">
                     <input type="checkbox" name="isMultiple" v-model="control.isMultiple"> Multiple Select
