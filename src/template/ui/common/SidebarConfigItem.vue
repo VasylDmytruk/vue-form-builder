@@ -60,13 +60,8 @@
                     <input type="checkbox" name="isNowTimeValue" v-model="control.isNowTimeValue"> Get Current Time?
                 </label>
 
-                <!-- for checkbox -->
-                <label v-if="control.type === 'checkbox'">
-                    <input type="checkbox" name="isChecked" v-model="control.isChecked"> Checked?
-                </label>
-
-                <!-- for radio -->
-                <label v-if="control.type === 'radio'">
+                <!-- for checkbox and radio -->
+                <label v-if="control.type === 'checkbox' || control.type === 'radio'">
                     <input type="checkbox" name="isChecked" v-model="control.isChecked"> Checked?
                 </label>
 
@@ -88,37 +83,39 @@
             </div>
         </div>
 
-        <!-- data options for select -->
-        <div class="row mt-2" v-if="control.type === 'select'">
+        <!-- data options for select and radioGroup -->
+        <div class="row mt-2" v-if="control.type === 'select' || control.type === 'radioGroup'">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>Data Source</label> <br />
-                    <label><input type="radio" name="isAjax" v-model="control.isAjax":value="false">Static Source</label>
+                    <label>Data Source</label> <br/>
+                    <label><input type="radio" name="isAjax" v-model="control.isAjax" :value="false">Static
+                        Source</label>
                     <label><input type="radio" name="isAjax" v-model="control.isAjax" :value="true">Ajax Source</label>
                 </div>
 
                 <table class="table table-bordered table-striped" v-if="!control.isAjax">
                     <thead>
-                        <tr>
-                            <th class="text-center" width="10%">
-                                <font-awesome-icon icon="plus" class="clickable" @click="addOption"></font-awesome-icon>
-                            </th>
-                            <th width="40%">Value</th>
-                            <th>Text</th>
-                        </tr>
+                    <tr>
+                        <th class="text-center" width="10%">
+                            <font-awesome-icon icon="plus" class="clickable" @click="addOption"></font-awesome-icon>
+                        </th>
+                        <th width="40%">Value</th>
+                        <th>Text</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(option, index) in control.dataOptions" :class="'staticSource_' + index">
-                            <td class="text-center">
-                                <font-awesome-icon icon="times" class="clickable" @click="removeOption(index)"></font-awesome-icon>
-                            </td>
-                            <td>
-                                <input type="text" class="form-control txtId" v-model="option.id">
-                            </td>
-                            <td>
-                                <input type="text" class="form-control txtText" v-model="option.text">
-                            </td>
-                        </tr>
+                    <tr v-for="(option, index) in control.dataOptions" :class="'staticSource_' + index">
+                        <td class="text-center">
+                            <font-awesome-icon icon="times" class="clickable"
+                                               @click="removeOption(index)"></font-awesome-icon>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control txtId" v-model="option.id">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control txtText" v-model="option.text">
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
                 <div class="form-group" v-else>
@@ -164,7 +161,9 @@
                     <label>Control label</label>
                     <input type="text" class="form-control" v-model="control.label">
                 </div>
-                <div class="form-group">
+                <div class="form-group" v-if="
+                    control.type !== 'radioGroup' && control.type !== 'radio' && control.type !== 'checkbox' && control.type !== 'select'
+                ">
                     <label>Control placeholder</label>
                     <input type="text" class="form-control" v-model="control.placeholder">
                 </div>
@@ -182,7 +181,7 @@
 
 <script>
     import {FORM_CONSTANTS, CONTROL_CONSTANTS} from "sethFormBuilder/config/constants";
-    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+    import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
     import Select2Control from "sethFormBuilder/third_party_controls/Select2Control";
     import SelectAjaxModal from "sethFormBuilder/template/ui/common/sidebar_config/SelectAjaxModal";
 
@@ -191,7 +190,8 @@
         components: {
             SelectAjaxModal,
             Select2Control,
-            FontAwesomeIcon},
+            FontAwesomeIcon
+        },
         props: {
             control: {
                 type: Object

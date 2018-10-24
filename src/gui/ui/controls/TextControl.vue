@@ -47,7 +47,6 @@
         name: "TextControl",
         props: ['control', 'labelPosition'],
         mounted() {
-            console.log('control', this.control);
             if (!_.isEmpty(this.control.defaultValue)) {
                 this.control.value = this.control.defaultValue;
             }

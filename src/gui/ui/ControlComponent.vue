@@ -6,6 +6,8 @@
         <time-picker-control v-if="control.type === 'timepicker'" :control="control" :label-position="labelPosition"></time-picker-control>
         <number-control v-if="control.type === 'number'" :control="control" :label-position="labelPosition"></number-control>
         <select-control v-if="control.type === 'select'" :control="control" :label-position="labelPosition"></select-control>
+        <radio-control v-if="control.type === 'radio'" :control="control" :label-position="labelPosition"></radio-control>
+        <radio-group-control v-if="control.type === 'radioGroup'" :control="control" :label-position="labelPosition"></radio-group-control>
     </div>
 </template>
 
@@ -17,10 +19,21 @@
     import TimePickerControl from "./controls/TimePickerControl";
     import NumberControl from "./controls/NumberControl";
     import SelectControl from "./controls/SelectControl";
+    import RadioControl from "./controls/RadioControl";
+    import RadioGroupControl from "./controls/RadioGroupControl";
 
     export default {
         name: "ControlComponent",
-        components: {SelectControl, NumberControl, TimePickerControl, DatePickerControl, CheckboxControl, TextControl},
+        components: {
+            SelectControl,
+            NumberControl,
+            TimePickerControl,
+            DatePickerControl,
+            CheckboxControl,
+            TextControl,
+            RadioControl,
+            RadioGroupControl,
+        },
         props: ['control', 'labelPosition'],
         created() {
             Hooks.Control.beforeRegister.run(this.control);

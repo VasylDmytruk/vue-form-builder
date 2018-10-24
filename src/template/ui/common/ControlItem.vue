@@ -11,7 +11,7 @@
                 <input type="text" class="form-control"
                        :readonly="control.readonly"
                        :name="control.fieldName"
-                       :value="demo_value"
+                       :placeholder="control.placeholder"
                        v-if="control.type != 'radio' && control.type != 'checkbox' && control.type != 'select'">
 
                 <!-- demo for select -->
@@ -19,6 +19,13 @@
                     <option disabled selected>Options</option>
                     <option v-for="option in control.dataOptions">{{option.text}}</option>
                 </select>
+
+                <!-- demo for radioGroup -->
+                <div v-if="control.type === 'radioGroup'">
+                    <span v-for="option in control.dataOptions">
+                        {{option.text}} <input type="radio" :name="control.fieldName" :value="option.value">
+                    </span>
+                </div>
 
                 <!-- demo for checkbox -->
                 <div class="text-center w-100" v-if="control.type == 'checkbox'">
@@ -47,7 +54,7 @@
                     <input type="text" class="form-control"
                            :readonly="control.readonly"
                            :name="control.fieldName"
-                           :value="demo_value"
+                           :placeholder="control.placeholder"
                            v-if="control.type != 'radio' && control.type != 'checkbox' && control.type != 'select'">
 
                     <!-- demo for select -->
@@ -55,6 +62,13 @@
                         <option disabled selected>Options</option>
                         <option v-for="option in control.dataOptions">{{option.text}}</option>
                     </select>
+
+                    <!-- demo for radioGroup -->
+                    <div v-if="control.type === 'radioGroup'">
+                        <span v-for="option in control.dataOptions">
+                            {{option.text}} <input type="radio" :name="control.fieldName" :value="option.value">
+                        </span>
+                    </div>
 
                     <!-- demo for checkbox -->
                     <div class="text-center w-100" v-if="control.type == 'checkbox'">
@@ -169,7 +183,7 @@
                 // solving default value
                 switch (this.control.type) {
                     case 'text':
-                        return "Text here";
+                        return (this.control.placeholder) ? this.control.placeholder : "Text here";
                     case 'datepicker':
                         if (this.control.isTodayValue) {
                             return moment().format(CONTROL_CONSTANTS.DateFormat[this.control.dateFormat]);

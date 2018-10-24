@@ -49,6 +49,7 @@ FORM_CONSTANTS.Control = {
     value: "",
     className: 'col-md-4',
     readonly: false,
+    placeholder: '',
 
     // label style
     labelBold: false,
@@ -110,6 +111,10 @@ FORM_CONSTANTS.Type = {
     },
     radio: {
         label:"Radio",
+        icon: faDotCircle
+    },
+    radioGroup: {
+        label:"Radio Group",
         icon: faDotCircle
     },
 };
