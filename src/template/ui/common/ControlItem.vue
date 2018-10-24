@@ -12,7 +12,10 @@
                        :readonly="control.readonly"
                        :name="control.fieldName"
                        :placeholder="control.placeholder"
-                       v-if="control.type != 'radio' && control.type != 'checkbox' && control.type != 'select'">
+                       v-if="control.type !== 'radioGroup'
+                            && control.type !== 'radio'
+                            && control.type !== 'checkbox'
+                            && control.type !== 'select'">
 
                 <!-- demo for select -->
                 <select class="form-control" v-if="control.type == 'select'" :name="control.fieldName">
@@ -22,9 +25,9 @@
 
                 <!-- demo for radioGroup -->
                 <div v-if="control.type === 'radioGroup'">
-                    <span v-for="option in control.dataOptions">
+                    <div v-for="option in control.dataOptions">
                         {{option.text}} <input type="radio" :name="control.fieldName" :value="option.value">
-                    </span>
+                    </div>
                 </div>
 
                 <!-- demo for checkbox -->
@@ -37,7 +40,14 @@
                     <input type="radio" :name="control.fieldName" :checked="control.isChecked">
                 </div>
 
-                <div class="input-group-append" v-if="control.type != 'text' && control.type != 'select' && control.type != 'checkbox' && control.type != 'radio'">
+                <div
+                        class="input-group-append"
+                        v-if="control.type !== 'text'
+                        && control.type !== 'select'
+                        && control.type !== 'checkbox'
+                        && control.type !== 'radio'
+                        && control.type !== 'radioGroup'"
+                >
                     <span class="input-group-text">
                         <font-awesome-icon :icon="controlTypes[control.type].icon"></font-awesome-icon>
                     </span>
@@ -55,7 +65,10 @@
                            :readonly="control.readonly"
                            :name="control.fieldName"
                            :placeholder="control.placeholder"
-                           v-if="control.type != 'radio' && control.type != 'checkbox' && control.type != 'select'">
+                           v-if="control.type !== 'radioGroup'
+                                && control.type !== 'radio'
+                                && control.type !== 'checkbox'
+                                && control.type !== 'select'">
 
                     <!-- demo for select -->
                     <select class="form-control" v-if="control.type == 'select'" :name="control.fieldName">
@@ -65,9 +78,9 @@
 
                     <!-- demo for radioGroup -->
                     <div v-if="control.type === 'radioGroup'">
-                        <span v-for="option in control.dataOptions">
+                        <div v-for="option in control.dataOptions">
                             {{option.text}} <input type="radio" :name="control.fieldName" :value="option.value">
-                        </span>
+                        </div>
                     </div>
 
                     <!-- demo for checkbox -->
@@ -80,7 +93,14 @@
                         <input type="radio" :name="control.fieldName" :checked="control.isChecked">
                     </div>
 
-                    <div class="input-group-append" v-if="control.type != 'text' && control.type != 'select' && control.type != 'checkbox' && control.type != 'radio'">
+                    <div
+                            class="input-group-append"
+                            v-if="control.type !== 'text'
+                            && control.type !== 'select'
+                            && control.type !== 'checkbox'
+                            && control.type !== 'radio'
+                            && control.type !== 'radioGroup'"
+                    >
                         <span class="input-group-text">
                             <font-awesome-icon :icon="controlTypes[control.type].icon"></font-awesome-icon>
                         </span>
