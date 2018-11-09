@@ -31,11 +31,20 @@
                    v-if="!control.isMultiLine"
                    :name="control.fieldName"
                    v-model="control.value"
-                   :placeholder="control.placeholder" />
+                   :placeholder="control.placeholder"
+                   v-validate="control.validationRules"
+                   :class="{ input: true, 'is-danger': errors.has(control.fieldName) }"
+            />
             <textarea v-else class="form-control"
                       v-model="control.value"
                       :readonly="this.control.readonly"
-                      :name="control.fieldName"></textarea>
+                      :name="control.fieldName"
+                      v-validate="control.validationRules"
+                      :class="{ input: true, 'is-danger': errors.has(control.fieldName) }"
+            ></textarea>
+
+            <span v-show="errors.has(control.fieldName)" class="help is-danger">{{ errors.first(control.fieldName) }}</span>
+
         </div>
     </div>
 </template>

@@ -176,6 +176,21 @@
         </div>
 
         <select-ajax-modal ref="SelectAjaxModal"></select-ajax-modal>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Validation rules</label>
+                    <input type="text" class="form-control" v-model="control.validationRules">
+                    <p>Note: use pipe "|" for multiple rules (required|numeric)
+                        <a href="https://baianat.github.io/vee-validate/guide/rules.html">
+                            Available rules
+                        </a>
+                    </p>
+                </div>
+                
+            </div>
+        </div>
     </div>
 </template>
 

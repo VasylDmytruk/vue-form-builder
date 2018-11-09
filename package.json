@@ -1,7 +1,7 @@
 {
     "name": "autoxloo-form-builder",
     "description": "Fork of a Super Form Builder (drag & drop) build with VueJS by Seth Phat",
-    "version": "1.2.19",
+    "version": "1.2.20",
     "author": "Vasyl Dmytruk <vasyl.dmytruk@xloo.com>",
     "keywords": [
         "vue",
@@ -36,6 +36,7 @@
         "select2": "^4.0.6-rc.1",
         "underscore": "^1.9.1",
         "underscore-deep-extend": "^1.1.5",
+        "vee-validate": "^2.1.2",
         "webpack-jquery-ui": "^2.0.1"
     },
     "devDependencies": {

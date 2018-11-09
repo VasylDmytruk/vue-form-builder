@@ -10,6 +10,8 @@
 
 <script>
     // load necessary
+    import Vue from 'vue';
+    import VeeValidate from 'vee-validate';
     import underscoreDeepExtend from 'underscore-deep-extend';
     import moment from 'moment';
     import {FontAwesomeRegister} from "sethFormBuilder/config/font-awesome-register";
@@ -17,6 +19,8 @@
     import {Hooks as GUI_Hooks} from './gui/components/hook_lists';
     import {Hooks as Template_Hooks} from './template/components/hook_lists';
     import {FormHandler} from "sethFormBuilder/gui/handler/form_handler";
+
+    Vue.use(VeeValidate);
 
     // load jquery
     if (!window.$) {
