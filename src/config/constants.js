@@ -61,7 +61,6 @@ FORM_CONSTANTS.Control = {
     validationRules: null,
     hasErrors: false,
     validationErrors: [],
-    validationFirstError: null,
 
     // attr for text
     isMultiLine: false,

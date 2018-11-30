@@ -25,7 +25,9 @@
                           :class="{ input: true, 'is-danger': control.hasErrors }"
                 ></textarea>
 
-                <span v-show="control.hasErrors" class="help is-danger">{{ control.validationFirstError }}</span>
+                <span v-show="control.hasErrors" class="help is-danger">
+                    {{ control.validationErrors && control.validationErrors.length ? control.validationErrors[0] : null }}
+                </span>
 
             </div>
         </div>
@@ -52,7 +54,9 @@
                       :class="{ input: true, 'is-danger': control.hasErrors }"
             ></textarea>
 
-            <span v-show="control.hasErrors" class="help is-danger">{{ control.validationFirstError }}</span>
+            <span v-show="control.hasErrors" class="help is-danger">
+                {{ control.validationErrors && control.validationErrors.length ? control.validationErrors[0] : null }}
+            </span>
 
         </div>
     </div>
@@ -71,11 +75,6 @@
 
             // after hook
             Hooks.Control.afterInit.run(this.control, $(this.$el).find(this.control.isMultiLine ? "textarea" : "input"));
-        },
-        watch: {
-            control(newValue, oldValue) {
-                console.log('watch control', newValue);
-            },
         },
     }
 </script>
