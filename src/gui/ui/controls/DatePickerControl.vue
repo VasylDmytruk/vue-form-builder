@@ -14,6 +14,10 @@
                            :readonly="this.control.readonly"
                            v-model="control.value" />
 
+                    <span v-show="control.hasErrors" class="help is-danger">
+                        {{ control.validationErrors && control.validationErrors.length ? control.validationErrors[0] : null }}
+                    </span>
+
                     <div class="input-group-append">
                     <span class="input-group-text">
                         <font-awesome-icon :icon="controlTypes[control.type].icon"></font-awesome-icon>
@@ -33,6 +37,10 @@
                        :name="control.fieldName"
                        :readonly="this.control.readonly"
                        v-model="control.value" />
+
+                <span v-show="control.hasErrors" class="help is-danger">
+                    {{ control.validationErrors && control.validationErrors.length ? control.validationErrors[0] : null }}
+                </span>
 
                 <div class="input-group-append">
                     <span class="input-group-text">
@@ -80,6 +88,9 @@
                         "position": "relative",
                         "z-index": 99999
                     });
+                },
+                onSelect: function (dateText) {
+                    self.control.value = dateText;
                 }
             });
 
