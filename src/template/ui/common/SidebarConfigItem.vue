@@ -183,7 +183,7 @@
                     <label>Validation rules</label>
                     <input type="text" class="form-control" v-model="control.validationRules">
                     <p>Note: use pipe "|" for multiple rules (required|numeric)
-                        <a href="https://baianat.github.io/vee-validate/guide/rules.html">
+                        <a href="https://baianat.github.io/vee-validate/guide/rules.html" target="_blank">
                             Available rules
                         </a>
                     </p>

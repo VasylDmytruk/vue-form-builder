@@ -13,11 +13,20 @@
                        v-if="!control.isMultiLine"
                        :name="control.fieldName"
                        v-model="control.value"
-                       :placeholder="control.placeholder" />
+                       :placeholder="control.placeholder"
+                       v-validate="control.validationRules"
+                       :class="{ input: true, 'is-danger': errors.has(control.fieldName) }"
+                />
                 <textarea v-else class="form-control"
                           v-model="control.value"
                           :readonly="this.control.readonly"
-                          :name="control.fieldName"></textarea>
+                          :name="control.fieldName"
+                          v-validate="control.validationRules"
+                          :class="{ input: true, 'is-danger': control.hasErrors }"
+                ></textarea>
+
+                <span v-show="control.hasErrors" class="help is-danger">{{ control.validationFirstError }}</span>
+
             </div>
         </div>
         <div v-else class="form-group">
@@ -40,10 +49,10 @@
                       :readonly="this.control.readonly"
                       :name="control.fieldName"
                       v-validate="control.validationRules"
-                      :class="{ input: true, 'is-danger': errors.has(control.fieldName) }"
+                      :class="{ input: true, 'is-danger': control.hasErrors }"
             ></textarea>
 
-            <span v-show="errors.has(control.fieldName)" class="help is-danger">{{ errors.first(control.fieldName) }}</span>
+            <span v-show="control.hasErrors" class="help is-danger">{{ control.validationFirstError }}</span>
 
         </div>
     </div>
@@ -62,7 +71,12 @@
 
             // after hook
             Hooks.Control.afterInit.run(this.control, $(this.$el).find(this.control.isMultiLine ? "textarea" : "input"));
-        }
+        },
+        watch: {
+            control(newValue, oldValue) {
+                console.log('watch control', newValue);
+            },
+        },
     }
 </script>
 
